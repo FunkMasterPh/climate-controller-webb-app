@@ -1,0 +1,33 @@
+﻿@using Models
+@model C2DUpdateEventViewModel 
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
+    <a asp-area="User" asp-controller="DHT11Reading" asp-action="Index" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+        <h1 class="m-0">Greenhouse Climate Controller</h1>
+    </a>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" style="display: flex; justify-content: flex-end;" id="navbarCollapse">
+        <a class="btn btn-primary py-4 px-lg-4 rounded-0 d-none d-lg-block" id="logout" asp-area="Identity" asp-page="/Account/Logout">Logout<i class="fa fa-arrow-righty ms-3"></i></a>
+    </div>
+</nav>
+<!-- Navbar End -->
+<form method="post" asp-action="Upsert" class="form-control container-fluid" style="width: 50%" >
+    <div>
+        <div asp-validation-summary="All"></div>
+        <div class="mb-3">
+            <div>
+                <label asp-for="LowerThreshold"></label>
+                <input asp-for="LowerThreshold" class="form-control" />
+                <span asp-validation-for="LowerThreshold" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="UpperThreshold"></label>
+                <input asp-for="UpperThreshold" class="form-control" />
+                <span asp-validation-for="UpperThreshold" class="text-danger"></span>
+            </div>
+        </div>
+        <button action="submit" class="btn btn-light">Update</button>
+    </div>
+</form>
